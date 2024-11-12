@@ -14,9 +14,9 @@ export const LandingPage = () => (
       <h2>How do I play?</h2>
       <ol>
         <li>
-          <Link to="/sets/create">Create</Link> a set or <Link to="/sets/upload">Upload</Link> a set file.
+          <Link to="/sets/create">Create</Link> a set or <Link to="/sets/upload">Upload</Link> a card set file.
         </li>
-        <li>If you need to send a set you created to your friend, you can download your set file on
+        <li>If you need to send a card set you created to your friend, you can download your set file on
           the <Link to="/sets">My Sets</Link> page.</li>
         <li>Visit the <Link to="/play">Play</Link> page and choose a set to play with!</li>
       </ol>

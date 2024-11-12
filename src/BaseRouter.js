@@ -6,6 +6,7 @@ import {ViewSets} from './ViewSets/ViewSets';
 import {EditSet} from './EditSet/EditSet';
 import {CreateSet} from './CreateSet/CreateSet';
 import {UploadSet} from './UploadSet/UploadSet';
+import {Play} from './Play/Play';
 
 export const BaseRouter = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ export const BaseRouter = () => (
       <Route path="/sets/:setId" element={<EditSet />} />
       <Route path="/sets/create" element={<CreateSet />} />
       <Route path="/sets/upload" element={<UploadSet />} />
+      <Route path="/play" element={<Play />} />
     </Routes>
   </BrowserRouter>
 );
