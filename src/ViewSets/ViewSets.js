@@ -50,11 +50,11 @@ export const ViewSets = () => {
         (cardSetArray.length === 0) ? (
           <div>
             <h1>You don't have any sets yet!</h1>
-            <Link to="/sets/create">Create or upload a set now!</Link>
+            <Link to="/sets/create">Create</Link> or <Link to="/sets/upload">Upload</Link> a set file now!
           </div>
         ) : (
           <div>
-            <h1>Your Sets</h1>
+            <h1>My Sets</h1>
             <p className="hint">
               View, download, or delete your sets. You can have up to sixteen (16) sets saved.
             </p>

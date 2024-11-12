@@ -18,8 +18,12 @@ export const HeaderBar = () => (
       <button>Create</button>
     </Link>
 
+    <Link to="/sets/upload">
+      <button>Upload</button>
+    </Link>
+
     <Link to="/sets">
-      <button>Sets</button>
+      <button>My Sets</button>
     </Link>
   </header>
 );
