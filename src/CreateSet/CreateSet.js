@@ -88,7 +88,8 @@ export const CreateSet = () => {
           <h3>3. Provide links and names for your cards.</h3>
           <p className="hint">
             When you enter a name or URL, the example image on the right will update so you can see what the card
-            will look like when you play!
+            will look like when you play! Remember, you don&apos;t need to create the whole set at the same time,
+            but you do need to complete it before you can play.
           </p>
           {
             Array(cardCount).fill(null).map((value, index) => (

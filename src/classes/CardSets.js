@@ -21,15 +21,15 @@ export class CardSets{
   }
 
   /**
-   * Get a card set with a given name
-   * @param name
+   * Get a card set with a given setId
+   * @param setId
    * @returns {*}
    */
-  getCardSet(name) {
-    if (!this.#cardSets[name]) {
-      throw new Error(`Card set with name ${name} does not exist.`);
+  getCardSet(setId) {
+    if (!this.#cardSets[setId]) {
+      throw new Error(`Card set with id ${setId} does not exist.`);
     }
-    return this.#cardSets[name];
+    return this.#cardSets[setId];
   }
 
   /**
@@ -75,14 +75,14 @@ export class CardSets{
   }
 
   /**
-   * Delete a card set with a given name, and save to localStorage
-   * @param name
+   * Delete a card set with a given setId, and save to localStorage
+   * @param setId
    */
-  deleteCardSet(name) {
-    if (!this.#cardSets[name]) {
-      throw new Error(`Card set with name ${name} does not exist.`);
+  deleteCardSet(setId) {
+    if (!this.#cardSets[setId]) {
+      throw new Error(`Card set with id ${setId} does not exist.`);
     }
-    delete this.#cardSets[name];
+    delete this.#cardSets[setId];
     this.#saveCardSets();
   }
 

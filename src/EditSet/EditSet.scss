@@ -1,3 +1,82 @@
 #edit-set{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  min-width: 30rem;
+  max-width: 50rem;
 
+  #steps-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    #steps{
+      width: 35rem;
+
+      #name-input{
+        width: 16rem;
+      }
+
+      h3{
+        margin-top: 1rem;
+      }
+
+      .card-input-container{
+        margin-top: 2rem;
+
+        h4{
+          margin-bottom: 0.25rem;
+        }
+
+        .card-input-grid{
+          display: grid;
+          grid-template-columns: 4rem auto;
+          grid-column-gap: 0.5rem;
+          grid-row-gap: 0.5rem;
+        }
+      }
+    }
+  }
+
+  #example-card{
+    position: sticky;
+    top: 8rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    height: max-content;
+    background-color: #2b2b2b;
+    border: 3px solid black;
+
+    #example-identifier{
+      text-align: center;
+      width: 100%;
+      margin-bottom: 3px;
+    }
+  }
+
+  .hint{
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+  }
+
+  #save-button{
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    background-image: unset;
+    color: #000000;
+
+    &:hover{
+      background-color: #d3d3d3;
+      opacity: unset;
+      border: 2px solid #333333;
+    }
+  }
 }
