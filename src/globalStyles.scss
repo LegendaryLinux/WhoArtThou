@@ -1,0 +1,51 @@
+body{
+  margin: 0;
+  background-image: url('../public/static/wood-slats.jpg');
+  background-repeat: repeat;
+  font-size: 1.3rem;
+  color: #ffe8a4;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+h1, h2, h3{
+  text-shadow: 3px 3px 3px #000000;
+  margin: 0;
+}
+
+a{
+  color: #fffb00;
+}
+
+.spacer{
+  flex-grow: 1;
+}
+
+button{
+  background-image: url('../public/static/button.png');
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  color: #ececec;
+  text-align: center;
+
+  &:hover{
+    opacity: 0.9;
+  }
+}
+
+.text-content{
+  background-color: rgba(108, 60, 0, 0.5);
+}
