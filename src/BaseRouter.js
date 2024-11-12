@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {HeaderBar} from './HeaderBar/HeaderBar';
 import {LandingPage} from './LandingPage/LandingPage';
-import {ViewSets} from './Sets/ViewSets';
+import {ViewSets} from './ViewSets/ViewSets';
 import {EditSet} from './EditSet/EditSet';
 import {CreateSet} from './CreateSet/CreateSet';
 
