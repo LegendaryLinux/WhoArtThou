@@ -3,13 +3,21 @@ export class CardSets{
 
   /** Constructor */
   constructor() {
-    this.loadCardSets();
+    this.#loadCardSets();
   }
 
   /** Load card set data from localStorage */
-  loadCardSets() {
+  #loadCardSets() {
     const cardSets = localStorage.getItem('cardSets');
     this.#cardSets = cardSets ? JSON.parse(cardSets) : {};
+  }
+
+  /**
+   * Determine the number of currently existing card sets
+   * @returns {number}
+   */
+  getCardSetCount() {
+    return Object.keys(this.#cardSets).length;
   }
 
   /**
@@ -33,20 +41,37 @@ export class CardSets{
   }
 
   /**
-   * Set a card set with a given name, and save to localStorage
+   * Create a card set with a given name, and save to localStorage
    * @param name
    * @param size
    * @param imageArray
+   * @return String setId
    */
-  setCardSet(name, size, imageArray) {
-    const setId = crypto.randomUUID();
+  createCardSet(name, size, imageArray) {
+    const setId = Math.random().toString(36).substring(0, 32);
     this.#cardSets[setId] = {
-      setId,
       name,
       size,
       images: imageArray,
     };
-    this.saveCardSets();
+    this.#saveCardSets();
+    return setId;
+  }
+
+  /**
+   * Update a card set by its ID, and save to localStorage
+   * @param setId
+   * @param name
+   * @param size
+   * @param imageArray
+   */
+  updateCardSet(setId, name, size, imageArray) {
+    this.#cardSets[setId] = {
+      name,
+      size,
+      images: imageArray,
+    };
+    this.#saveCardSets();
   }
 
   /**
@@ -58,10 +83,10 @@ export class CardSets{
       throw new Error(`Card set with name ${name} does not exist.`);
     }
     delete this.#cardSets[name];
-    this.saveCardSets();
+    this.#saveCardSets();
   }
 
-  saveCardSets() {
+  #saveCardSets() {
     localStorage.setItem('cardSets', JSON.stringify(this.#cardSets));
   }
 }

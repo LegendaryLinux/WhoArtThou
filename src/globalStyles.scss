@@ -23,6 +23,10 @@ h1, h2, h3{
   margin: 0;
 }
 
+h4, h5, h6{
+  margin: 0;
+}
+
 a{
   color: #fffb00;
 }
@@ -48,4 +52,39 @@ button{
 
 .text-content{
   background-color: rgba(108, 60, 0, 0.5);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 2px 2px #000000;
+}
+
+.range-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 2rem;
+
+  input[type=range]{
+    margin-right: 0.5rem;
+    flex-grow: 1;
+  }
+}
+
+.user-banner{
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  &.info{
+    background-color: #add8e6;
+    color: #000000;
+    border: 1px solid #add8e6;
+  }
+
+  &.warning{
+    background-color: #ffff00;
+    color: #000000;
+    border: 1px solid #ffff00;
+  }
 }
