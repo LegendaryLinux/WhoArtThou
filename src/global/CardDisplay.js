@@ -9,10 +9,15 @@ export const CardDisplay = ({name, url, mayToggle=true}) => {
     setIsClicked(!isClicked);
   };
 
+  const cleanUrl = (url) => {
+    const match = url.match(/(.*\.(jpg|jpeg|gif|png|webp))/);
+    return match ? match[1] : url;
+  };
+
   return (
     <div className={`card-display ${mayToggle ? 'clickable' : null}`} onClick={handleClick}>
       <img
-        src={url || '/static/card-placeholder.jpg'}
+        src={url ? cleanUrl(url) : '/static/card-placeholder.jpg'}
         alt={`Image of ${name || 'Unnamed Card'}`}
         className={`${isClicked ? 'clicked' : null}`}
       />

@@ -36,18 +36,8 @@ a{
 }
 
 button{
-  background-image: url('../public/static/button.png');
-  background-size: cover;
-  background-position: center;
-  padding: 1rem;
-  cursor: pointer;
-  border: none;
-  color: #ececec;
-  text-align: center;
-
-  &:hover{
-    opacity: 0.9;
-  }
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }
 
 .text-content{

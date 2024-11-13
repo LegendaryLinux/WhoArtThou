@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {CardDisplay} from '../global/CardDisplay';
 import {CardSets} from '../classes/CardSets';
@@ -7,8 +7,25 @@ import './Play.scss';
 export const Play = () => {
   const cardSets = new CardSets();
   const [cardSetId, setCardSetId] = useState(null);
+  const [yourCard, setYourCard] = useState(null);
+
+  useEffect(() => {
+    if (!cardSetId) {
+      setYourCard(null);
+      return;
+    }
+    const cardSet = cardSets.getCardSet(cardSetId);
+    const yourCardIndex = Math.floor(Math.random() * ((cardSet.size -1) - 0 + 1) + 0);
+    setYourCard(cardSets.getCardSet(cardSetId).images[yourCardIndex]);
+  }, [cardSetId]);
 
   const handleCardSetChange = (evt) => setCardSetId(evt.target.value);
+  const startNewGame = () => setCardSetId(null);
+  const changeCard = () => {
+    const cardSet = cardSets.getCardSet(cardSetId);
+    const yourCardIndex = Math.floor(Math.random() * ((cardSet.size -1) - 0 + 1) + 0);
+    setYourCard(cardSets.getCardSet(cardSetId).images[yourCardIndex]);
+  };
 
   if (!cardSetId) {
     return (
@@ -50,16 +67,22 @@ export const Play = () => {
     );
   }
 
-  const cardSet = cardSets.getCardSet(cardSetId);
-  const yourCardIndex = Math.floor(Math.random() * ((cardSet.size -1) - 0 + 1) + 0);
-  const yourCard = cardSet.images[yourCardIndex];
-
   return (
     <div id="play" className="game">
       <div className="instructions">
         <div id="your-card" className="text-content">
           <h3>Your card:</h3>
-          <CardDisplay name={yourCard.name} url={yourCard.url} mayToggle={false}/>
+          <CardDisplay
+            name={yourCard?.name || null}
+            url={yourCard?.url || null}
+            mayToggle={false}
+          />
+        </div>
+
+        <div className="text-content">
+          <h3>Commands:</h3>
+          <button onClick={startNewGame}>New Game</button>
+          <button onClick={changeCard}>New Card</button>
         </div>
 
         <div className="text-content">
@@ -77,7 +100,7 @@ export const Play = () => {
       <div className=" text-content card-board">
         {
           cardSets.getCardSet(cardSetId).images.map((img) => (
-            <CardDisplay name={img.name} url={img.url} />
+            <CardDisplay name={img.name} url={img.url} key={img.name} />
           ))
         }
       </div>
