@@ -131,7 +131,7 @@ export const CreateSet = () => {
           <CardDisplay name={activeName} url={activeUrl} mayToggle={false} />
         </div>
       </div>
-      <button id="save-button" onClick={createCardSet}>
+      <button id="save-button" onClick={createCardSet} disabled={cardSets.getCardSetCount() >= 16}>
         Save it!
       </button>
     </div>

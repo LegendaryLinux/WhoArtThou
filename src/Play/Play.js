@@ -8,6 +8,7 @@ export const Play = () => {
   const cardSets = new CardSets();
   const [cardSetId, setCardSetId] = useState(null);
   const [yourCard, setYourCard] = useState(null);
+  const [boardKey, setBoardKey] = useState(Math.floor(Math.random() * 1000000000).toString());
 
   useEffect(() => {
     if (!cardSetId) {
@@ -20,11 +21,16 @@ export const Play = () => {
   }, [cardSetId]);
 
   const handleCardSetChange = (evt) => setCardSetId(evt.target.value);
-  const startNewGame = () => setCardSetId(null);
+
+  const startNewGame = () => {
+    setCardSetId(null);
+  }
+
   const changeCard = () => {
     const cardSet = cardSets.getCardSet(cardSetId);
     const yourCardIndex = Math.floor(Math.random() * ((cardSet.size -1) - 0 + 1) + 0);
     setYourCard(cardSets.getCardSet(cardSetId).images[yourCardIndex]);
+    setBoardKey(Math.floor(Math.random() * 1000000000).toString());
   };
 
   if (!cardSetId) {
@@ -81,8 +87,8 @@ export const Play = () => {
 
         <div className="text-content">
           <h3>Commands:</h3>
-          <button onClick={startNewGame}>New Game</button>
-          <button onClick={changeCard}>New Card</button>
+          <button onClick={startNewGame}>Change Card Set</button>
+          <button onClick={changeCard}>New Game w/ Same Set</button>
         </div>
 
         <div className="text-content">
@@ -100,7 +106,7 @@ export const Play = () => {
       <div className=" text-content card-board">
         {
           cardSets.getCardSet(cardSetId).images.map((img) => (
-            <CardDisplay name={img.name} url={img.url} key={img.name} />
+            <CardDisplay name={img.name} url={img.url} key={`${img.name}-${boardKey}`} />
           ))
         }
       </div>

@@ -37,6 +37,14 @@ export const UploadSet = () => {
   return (
     <div id="upload-set" className="text-content">
       {
+        (cardSets.getCardSetCount() >= 16) ? (
+          <div className="user-banner warning">
+            You already have sixteen (16) card sets! You'll need to delete one before you can make another.
+          </div>
+        ) : null
+      }
+
+      {
         warningMessage ? (
           <div className="user-banner warning">{warningMessage}</div>
         ) : null
@@ -45,7 +53,7 @@ export const UploadSet = () => {
       <p className="hint">
         Upload a set file here. It will be added to your <Link to="/sets">My Sets</Link> page.
       </p>
-      <input type="file" onChange={uploadSet} accept="application/json" />
+      <input type="file" onChange={uploadSet} accept="application/json" disabled={cardSets.getCardSetCount() >= 16} />
     </div>
   );
 };
