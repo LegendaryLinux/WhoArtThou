@@ -1,3 +1,37 @@
 #play{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
 
+  &.choose-card-set{
+    min-width: 30rem;
+    max-width: 50rem;
+  }
+
+  &.game{
+    width: max-content;
+
+    .instructions{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin-bottom: 1rem;
+
+
+    }
+
+    .card-board{
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+
+      .card-display{
+        margin: 0.5rem 1rem;
+      }
+    }
+  }
+
+  .hint{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
 }
