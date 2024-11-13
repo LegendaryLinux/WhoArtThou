@@ -24,7 +24,7 @@ export const Play = () => {
 
   const startNewGame = () => {
     setCardSetId(null);
-  }
+  };
 
   const changeCard = () => {
     const cardSet = cardSets.getCardSet(cardSetId);
@@ -103,10 +103,10 @@ export const Play = () => {
         </div>
       </div>
 
-      <div className=" text-content card-board">
+      <div className=" text-content card-board" key={boardKey}>
         {
           cardSets.getCardSet(cardSetId).images.map((img) => (
-            <CardDisplay name={img.name} url={img.url} key={`${img.name}-${boardKey}`} />
+            <CardDisplay name={img.name} url={img.url} key={img.name} />
           ))
         }
       </div>

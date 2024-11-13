@@ -23,12 +23,24 @@ export class CardSets{
   /**
    * Get a card set with a given setId
    * @param setId
+   * @param shuffle
    * @returns {*}
    */
-  getCardSet(setId) {
+  getCardSet(setId, shuffle=false) {
     if (!this.#cardSets[setId]) {
       throw new Error(`Card set with id ${setId} does not exist.`);
     }
+
+    if (shuffle) {
+      const shuffledCardSet = structuredClone(this.#cardSets[setId]);
+      for (let i = shuffledCardSet.images.length-1; i > 0; --i) {
+        const j = Math.floor(Math.random() * (i+1));
+        [shuffledCardSet.images[i], shuffledCardSet.images[j]] =
+          [shuffledCardSet.images[j], shuffledCardSet.images[i]];
+      }
+      return shuffledCardSet;
+    }
+
     return this.#cardSets[setId];
   }
 
